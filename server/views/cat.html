@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+    <h1 id="goHome">Back to kitties <span class="glyphicon glyphicon-home" aria-hidden="true"></span> </h1> 
+    <h2>Edit Kitty</h2>
+
+    <form method="post" action="/cat/{{cat.id}}?_method=PUT" class="width">
+      <div class="form-group">
+        <label>Kitty name</label>
+        <input type="text" name="name" class="form-control" value="{{cat.name}}" required>
+        <label>Super Power</label>
+        <input type="text" name="superPower" class="form-control" value="{{cat.superPower}}" required>
+        <label>Arch Nemesis</label>
+        <input type="text" name="archNemesis" class="form-control" value="{{cat.archNemesis}}" required>
+      </div>
+      <button type="submit" class="btn btn-default float-left">Update</button>
+    </form>
+
+    <form method="post" action="/cat/{{cat.id}}?_method=DELETE" class="form-inline">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+  </div>
+
+{% endblock %}
